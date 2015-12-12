@@ -10,18 +10,19 @@ def cool_print(string):
 	for x in string:
 	    print(x, end='')
 	    sys.stdout.flush()
-	    sleep(uniform(0, 0.3))
+	    sleep(uniform(0, 0.25))
 
 def pal_check1(string):
 	count = 0
 	for i in range(len(string), 0, -1):
-		cool_print(string[i-1] + " " + string[-i] + "\n")
+		cool_print(string[i-1] + " " + string[-i])
 		if string[i-1].lower() == string[-i].lower():
 			count += 1
+			cool_print(" +")
+		cool_print("\n")
 	if count == len(string):
 		return "ALL YOUR BASES ARE PALINDROME\n"
 	else:
 		return "IT'S NOT PALINDROME, BRO\n"
-
 string = input("ENTER SOME PALINDROME STRING, BRO: ")
 cool_print(pal_check1(string))
